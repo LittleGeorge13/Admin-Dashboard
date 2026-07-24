@@ -1,9 +1,32 @@
-import React from 'react'
+import { Language, NotificationsNone, Settings } from "@material-ui/icons"
+import "./topbar.scss"
 
 const Topbar = () => {
     return (
-        <div>
-            Topbar
+        <div className='topbar'>
+            <div className="topbarWrapper">
+                <div className="topLeft">
+                    <span className="logo">Admin dashboard</span>
+                </div>
+                <div className="topRight">
+                    <div className="topbarIconContainer">
+                        <NotificationsNone />
+                        <span className="topIconBadge">2</span>
+                    </div>
+                    <div className="topbarIconContainer">
+                        <Language />
+                        <span className="topIconBadge">2</span>
+                    </div>
+                    <div className="topbarIconContainer">
+                        <Settings />
+                    </div>
+                    <img
+                      src="https://i.sstatic.net/l60Hf.png"
+                      alt="profile"
+                      className="topAvatar"
+                    />
+                </div>
+            </div>
         </div>
     )
 }

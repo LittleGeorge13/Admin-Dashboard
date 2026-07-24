@@ -1,7 +1,17 @@
-// import "./app.scss"
+import Sidebar from "./components/sidebar/Sidebar";
+import Topbar from "./components/topbar/Topbar";
+import "./app.scss"
 
 const App = () => {
-  return <p>Hello world!</p>;
+  return(
+    <div>
+      <Topbar />
+      <div className="container">
+        <Sidebar />
+        <div className="others">other pages</div>
+      </div>
+    </div>
+  );
 };
 
 export default App;
