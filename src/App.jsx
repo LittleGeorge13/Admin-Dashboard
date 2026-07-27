@@ -7,6 +7,8 @@ import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
 import NewUser from "./pages/newUser/NewUser";
 import ProductList from "./pages/productList/ProductList";
+import Product from "./pages/product/Product";
+import NewProduct from "./pages/newProduct/NewProduct";
 
 const App = () => {
   return(
@@ -21,8 +23,8 @@ const App = () => {
           <Route path="/user/:userId" Component={ User }/>
           <Route path="/newUser" Component={ NewUser }/>
           <Route path="/products" Component={ ProductList }/>
-          <Route path="/products/:productId" Component={ ProductList }/>
-          <Route path="/newProduct" Component={ ProductList }/>
+          <Route path="/products/:productId" Component={ Product }/>
+          <Route path="/newProduct" Component={ NewProduct }/>
         </Routes>
       </div>
     </Router>

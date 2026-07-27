@@ -57,15 +57,15 @@ const User = () => {
                                 <label>Username</label>
                                 <input
                                   type="text"
-                                  placeholder="username"
+                                  placeholder="Username"
                                   className="userUpdateInput"
                                 />
                             </div>
                             <div className="userUpdateItem">
-                                <label>Fullname</label>
+                                <label>Full Name</label>
                                 <input
                                   type="text"
-                                  placeholder="Full name"
+                                  placeholder="Full Name"
                                   className="userUpdateInput"
                                 />
                             </div>

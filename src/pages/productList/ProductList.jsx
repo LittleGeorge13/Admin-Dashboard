@@ -28,7 +28,7 @@ const ProductList = () => {
         { field: 'action', headerName: 'Action', width: 150, renderCell: (params => {
             return(
                 <>
-                    <Link to={"/product/" + params.row.id }>
+                    <Link to={"/products/" + params.row.id }>
                         <button className="productListEdit">Edit</button>
                     </Link>
                     <DeleteOutline

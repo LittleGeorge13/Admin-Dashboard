@@ -1,0 +1,130 @@
+.product {
+    flex: 4;
+    padding: 20px;
+}
+
+.productTitleContainer {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.productAddButton {
+    background-color: teal;
+    border-radius: 5px;
+    border: none;
+    color: whitesmoke;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+    width: 80px;
+}
+
+.productTop {
+    display: flex;
+}
+
+.productTopLeft,
+.productTopRight {
+    flex: 1;
+}
+
+.productTopRight {
+    margin: 20px;
+    padding: 20px;
+    -webkit-box-shadow: 0 0 15px -10px rgb(0, 0, 0, 0.75);
+    box-shadow: 0 0 15px -10px rgb(0, 0, 0, 0.75);
+}
+
+.productInfoImg {
+    border-radius: 50%;
+    height: 40px;
+    margin-right: 20px;
+    object-fit: cover;
+    width: 40px;
+}
+
+.productInfoTop {
+    display: flex;
+    align-items: center;
+}
+
+.productName {
+    font-weight: 600;
+}
+
+.productInfoBottom {
+    margin-top: 10px;
+}
+
+.productInfoItem {
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+}
+
+.productInfoValue {
+    font-weight: 300;
+}
+
+.productBottom {
+    margin: 20px;
+    padding: 20px;
+    -webkit-box-shadow: 0 0 15px -10px rgb(0, 0, 0, 0.75);
+    box-shadow: 0 0 15px -10px rgb(0, 0, 0, 0.75);
+}
+
+.productForm {
+    display: flex;
+    justify-content: space-between;
+}
+
+.productFormLeft {
+    display: flex;
+    flex-direction: column;
+}
+
+.productFormLeft>label {
+    color: gray;
+    margin-bottom: 10px;
+}
+
+.productFormLeft>input {
+    border: none;
+    border-bottom: 1px solid gray;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.productFormLeft>select {
+    margin-bottom: 10px;
+}
+
+.productUploadImg {
+    border-radius: 10px;
+    height: 100px;
+    margin-right: 20px;
+    object-fit: cover;
+    width: 100px;
+}
+
+.productFormRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.productUpload {
+    align-items: center;
+    display: flex;
+}
+
+.productButton {
+    background-color: darkblue;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 5px;
+}
