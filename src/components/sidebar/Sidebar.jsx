@@ -1,4 +1,4 @@
-import { AttachMoney, BarChart, ChatBubbleOutline, DynamicFeed, LineStyle, MailOutline, PermIdentity, Report, Storefront, Timeline, TrendingUp, WorkOutline } from "@material-ui/icons"
+import { AttachMoney, BarChart, ChatBubbleOutline, DynamicFeed, LineStyle, MailOutline, PermIdentity, PlayCircleOutline, Report, Storefront, Timeline, TrendingUp, WorkOutline } from "@material-ui/icons"
 import "./sidebar.scss"
 import { Link } from "react-router-dom"
 
@@ -34,10 +34,10 @@ const Sidebar = () => {
                                 Users
                             </li>
                         </Link>
-                        <Link to="/products" className="link">
+                        <Link to="/movies" className="link">
                             <li className="sidebarListItem">
-                                <Storefront className="sidebarIcon" />
-                                Products
+                                <PlayCircleOutline className="sidebarIcon" />
+                                Movies
                             </li>
                         </Link>
                         <li className="sidebarListItem">
