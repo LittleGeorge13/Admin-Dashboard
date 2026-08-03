@@ -3,25 +3,55 @@ import FeaturedInfo from "../../components/featuredInfo/FeaturedInfo"
 import WidgetLg from "../../components/widgetLg/WidgetLg";
 import WidgetSm from "../../components/widgetSm/WidgetSm";
 import { userData } from "../../dummyData";
+import { useEffect, useMemo, useState } from "react";
+import axios from "axios";
+import { getBaseUrl } from "../../../api-config";
+
+const baseURL = getBaseUrl();
 
 import "./home.scss"
 
 const Home = () => {
-    return (
-        <div className="home">
-            <FeaturedInfo />
-            <Chart
-              data={ userData }
-              title="User Analytics"
-              grid
-              dataKey={"Active User"}
-            />
-            <div className="homeWidgets">
-                <WidgetSm />
-                <WidgetLg />
-            </div>
-        </div>
-    )
+  const MONTHS = useMemo(() => [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+  ], []);
+
+  const [userStats, setUserStats] = useState([]);
+
+  useEffect(() => {
+    const getStats = async () => {
+      try {
+        const res = await axios.get(baseURL + `/users/stats`, {
+          headers: {
+            token: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNjhkN2ZhNTZjMDk0MmRmZTliMWFhZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTc4NTM0NTA2MywiZXhwIjoxNzg1Nzc3MDYzfQ.aIURJ3D5PdHUgmuUq6z863a6CjLhucWxczeXYFmtvm8'
+          }
+        });
+        const statsList = res.data.sort((a, b) => a._id - b._id);
+        const statsListFormatted = statsList.map(item => ( { name: MONTHS[item._id - 1], "New User": item.total } ));
+        setUserStats(statsListFormatted);
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getStats();
+  }, [MONTHS]);
+
+  return (
+    <div className="home">
+      <FeaturedInfo />
+      <Chart
+        data={userStats}
+        title="User Analytics"
+        grid
+        dataKey={"New User"}
+      />
+      <div className="homeWidgets">
+        <WidgetSm />
+        <WidgetLg />
+      </div>
+    </div>
+  )
 }
 
 export default Home
