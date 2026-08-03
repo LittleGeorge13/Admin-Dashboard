@@ -30,7 +30,7 @@ const WidgetSm = () => {
       <ul className="widgetSmList">
         { newUsers.map(user => {
           return (
-            <li className="widgetSmListItem">
+            <li key={user.username} className="widgetSmListItem">
               <img
                 src={ user.profilePic || 'https://i.pinimg.com/564x/1b/a2/e6/1ba2e6d1d4874546c70c91f1024e17fb.jpg' }
                 alt=""

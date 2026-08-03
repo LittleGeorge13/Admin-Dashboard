@@ -55,3 +55,26 @@
     height: 40px;
     width: 40px;
 }
+
+.profile {
+    .options {
+        background-color: #0b0b0b;
+        border-radius: 5px;
+        display: none;
+        color: white;
+    }
+
+    span {
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    &:hover {
+        .options {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            right: 15px;
+        }
+    }
+}
