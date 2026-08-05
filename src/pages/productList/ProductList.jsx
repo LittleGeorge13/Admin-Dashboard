@@ -3,36 +3,42 @@ import { DeleteOutline } from "@material-ui/icons";
 import { DataGrid } from "@material-ui/data-grid"
 import { productRows } from "../../dummyData";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { MovieContext } from "../../context/movieContext/MovieContext";
+import { deleteMovie, getMovies } from "../../context/movieContext/apiCalls";
 
 const ProductList = () => {
-    const [data, setData] = useState(productRows);
+    const { movies, dispatch } = useContext(MovieContext);
+
+    useEffect(() => {
+        getMovies(dispatch);
+    }, [dispatch]);
 
     const handleDelete = (id) => {
-        setData(prev => prev.filter(item => item.id !== id))
+        deleteMovie(id, dispatch);
     };
 
     const columns = [
-        { field: 'id', headerName: 'ID', width: 90 },
-        { field: 'product', headerName: 'Product', width: 200, renderCell: (params => {
+        { field: '_id', headerName: 'ID', width: 90 },
+        { field: 'movie', headerName: 'Movie', width: 200, renderCell: (params => {
             return(
                 <div className="productListItem">
                     <img className="productListIImg" src={ params.row.img } alt="product image" />
-                    { params.row.name }
+                    { params.row.title }
                 </div>
             );
         }) },
-        { field: 'stock', headerName: 'Stock', width: 200 },
-        { field: 'status', headerName: 'Status', width: 120 },
-        { field: 'price', headerName: 'Price', width: 160 },
-        { field: 'action', headerName: 'Action', width: 150, renderCell: (params => {
+        { field: 'genre', headerName: 'Genre', width: 120 },
+        { field: 'year', headerName: 'Year', width: 120 },
+        { field: 'limit', headerName: 'Limit', width: 160 },
+        { field: 'isSeries', headerName: 'IsSeries', width: 150, renderCell: (params => {
             return(
                 <>
-                    <Link to={"/products/" + params.row.id }>
+                    <Link to={ "/products/" + params.row._id } state={{ movie: params.row }}>
                         <button className="productListEdit">Edit</button>
                     </Link>
                     <DeleteOutline
-                      onClick={ () => handleDelete(params.row.id) }
+                      onClick={ () => handleDelete(params.row._id) }
                       className="productListDelete"
                     />
                 </>
@@ -43,12 +49,13 @@ const ProductList = () => {
     return (
         <div className="productList">
             <DataGrid
-                rows={data}
+                rows={movies}
                 columns={columns}
                 checkboxSelection
                 sx={{ border: 0 }}
                 pageSize={5}
                 disableSelectionOnClick
+                getRowId={r=>r._id}
             />
         </div>
     )
