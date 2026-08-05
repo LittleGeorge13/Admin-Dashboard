@@ -57,9 +57,9 @@ const Product = () => {
                         <label>Limit</label>
                         <input type="text" placeholder='Movie limit' defaultValue={ movie.limit } />
                         <label>Trailer</label>
-                        <input type="text" placeholder='Movie trailer url' defaultValue={ movie.trailer } />
+                        <input type="file" placeholder='Movie trailer url' />
                         <label>Video</label>
-                        <input type="text" placeholder='Movie video url' defaultValue={ movie.video } />
+                        <input type="file" placeholder='Movie video url' />
                     </div>
                     <div className="productFormRight">
                         <div className="productUpload">
