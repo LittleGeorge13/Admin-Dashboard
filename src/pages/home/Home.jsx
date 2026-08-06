@@ -22,9 +22,10 @@ const Home = () => {
   useEffect(() => {
     const getStats = async () => {
       try {
+        const user = JSON.parse(localStorage.getItem('user'));
         const res = await axios.get(baseURL + `/users/stats`, {
           headers: {
-            token: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNjhkN2ZhNTZjMDk0MmRmZTliMWFhZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTc4NTM0NTA2MywiZXhwIjoxNzg1Nzc3MDYzfQ.aIURJ3D5PdHUgmuUq6z863a6CjLhucWxczeXYFmtvm8'
+            token: 'Bearer ' + user.accessToken
           }
         });
         const statsList = res.data.sort((a, b) => a._id - b._id);

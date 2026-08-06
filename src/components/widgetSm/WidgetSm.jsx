@@ -12,9 +12,10 @@ const WidgetSm = () => {
   useEffect(() => {
     const getNewUsers = async () => {
       try {
+        const user = JSON.parse(localStorage.getItem('user'));
         const res = await axios.get(baseURL + '/users/find?new=true', {
           headers: {
-            token: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNjhkN2ZhNTZjMDk0MmRmZTliMWFhZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTc4NTc3ODkwMSwiZXhwIjoxNzg2MjEwOTAxfQ.mgcda5O_duiZPF0Nl1xloRO8487xDjdftXQbpREpZ1M'
+            token: 'Bearer ' + user.accessToken
           }
         });
         setNewUsers(res.data);
