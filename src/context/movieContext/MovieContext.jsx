@@ -2,7 +2,7 @@ import { createContext, useEffect, useReducer } from "react";
 import MovieReducer from "./MovieReducer";
 
 const initialState = {
-  movies: JSON.parse(localStorage.getItem('movies')) || null,
+  movies: [],
   isFetching: false,
   errorInfo: null,
   error: false,
@@ -14,10 +14,6 @@ export const MovieContextProvider = ({
   children
 }) => {
   const [state, dispatch] = useReducer(MovieReducer, initialState);
-
-  useEffect(() => {
-    localStorage.setItem('movies', JSON.stringify(state.movies));
-  }, [state.movies]);
 
   const value = {
     movies: state.movies,

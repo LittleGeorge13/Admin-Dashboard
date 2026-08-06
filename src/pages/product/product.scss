@@ -121,6 +121,12 @@
 .productUpload {
     align-items: center;
     display: flex;
+    justify-content: space-between;
+}
+
+.productUploadImgTitle {
+    font-size: 16px;
+    margin-right: 10px;
 }
 
 .productButton {
@@ -131,4 +137,9 @@
     cursor: pointer;
     font-weight: 600;
     padding: 5px;
+
+    &:disabled {
+        background-color: gray;
+        cursor: default;
+    }
 }

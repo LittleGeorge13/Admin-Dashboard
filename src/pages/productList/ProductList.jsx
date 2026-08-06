@@ -1,9 +1,8 @@
 import "./productList.scss"
 import { DeleteOutline } from "@material-ui/icons";
 import { DataGrid } from "@material-ui/data-grid"
-import { productRows } from "../../dummyData";
 import { Link } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { MovieContext } from "../../context/movieContext/MovieContext";
 import { deleteMovie, getMovies } from "../../context/movieContext/apiCalls";
 
@@ -31,7 +30,8 @@ const ProductList = () => {
         { field: 'genre', headerName: 'Genre', width: 120 },
         { field: 'year', headerName: 'Year', width: 120 },
         { field: 'limit', headerName: 'Limit', width: 160 },
-        { field: 'isSeries', headerName: 'IsSeries', width: 150, renderCell: (params => {
+        { field: 'isSeries', headerName: 'IsSeries', width: 160 },
+        { field: 'edit', headerName: 'Edit', width: 150, renderCell: (params => {
             return(
                 <>
                     <Link to={ "/products/" + params.row._id } state={{ movie: params.row }}>
