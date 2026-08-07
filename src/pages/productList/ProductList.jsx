@@ -1,6 +1,6 @@
 import "./productList.scss"
-import { DeleteOutline } from "@material-ui/icons";
-import { DataGrid } from "@material-ui/data-grid"
+import { DeleteOutline } from "@mui/icons-material";
+import { DataGrid } from "@mui/x-data-grid"
 import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { MovieContext } from "../../context/movieContext/MovieContext";

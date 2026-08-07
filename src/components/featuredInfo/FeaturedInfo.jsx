@@ -1,4 +1,4 @@
-import { ArrowDownward, ArrowUpward } from "@material-ui/icons"
+import { ArrowDownward, ArrowUpward } from "@mui/icons-material"
 import "./featuredInfo.scss"
 
 const FeaturedInfo = () => {

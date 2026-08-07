@@ -1,4 +1,4 @@
-import { ArrowDropDown, Language, NotificationsNone, Settings } from "@material-ui/icons"
+import { ArrowDropDown, Language, NotificationsNone, Settings } from "@mui/icons-material"
 import "./topbar.scss"
 import { AuthContext } from "../../context/authContext/AuthContext";
 import { logoutStart } from "../../context/authContext/AuthActions";
